@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/GRE_WordSearch/static/js/main.2a39cc19.js",
+    "index.html": "/GRE_WordSearch/index.html",
+    "main.2a39cc19.js.map": "/GRE_WordSearch/static/js/main.2a39cc19.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.2a39cc19.js"
+  ]
+}
