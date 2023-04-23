@@ -31,7 +31,7 @@ function App() {
           options={options}
         />
       </div>
-      <div key={itemData} style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+      <div key={itemData} style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '100%', margin: '40px'}}>
       {
         selectedOption == '' ? <h2>Please select a word</h2> : <div>
           <div style={{textAlign: 'left'}}>
