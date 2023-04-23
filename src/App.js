@@ -31,7 +31,7 @@ function App() {
           options={options}
         />
       </div>
-      <div key={itemData} style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '100%', margin: '40px'}}>
+      <div key={itemData} style={{width:'80%', margin:'auto'}}>
       {
         selectedOption == '' ? <h2>Please select a word</h2> : <div>
           <div style={{textAlign: 'left'}}>
@@ -39,7 +39,7 @@ function App() {
             <h3>Meaning: {values[itemData]?.[0].meaning}</h3>
             <h3>Sentence: {values[itemData]?.[0].sentence}</h3>
           </div>
-          <img src={data[itemData]} alt={itemData} />
+          <img src={data[itemData]} alt={itemData} style={{width:'100%'}} />
         </div>
       }
       </div>
