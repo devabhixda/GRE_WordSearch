@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/GRE_WordSearch/static/js/main.8a8710c3.js",
+    "main.js": "/GRE_WordSearch/static/js/main.be4caa3f.js",
     "index.html": "/GRE_WordSearch/index.html",
-    "main.8a8710c3.js.map": "/GRE_WordSearch/static/js/main.8a8710c3.js.map"
+    "main.be4caa3f.js.map": "/GRE_WordSearch/static/js/main.be4caa3f.js.map"
   },
   "entrypoints": [
-    "static/js/main.8a8710c3.js"
+    "static/js/main.be4caa3f.js"
   ]
 }
