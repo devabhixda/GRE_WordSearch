@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import data from './assets/data.json';
 import values from './assets/values.json';
 import Select from 'react-select';
+import Speech from 'react-speech';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -35,7 +36,16 @@ function App() {
       {
         selectedOption == '' ? <h2>Please select a word</h2> : <div>
           <div style={{textAlign: 'left'}}>
-            <h2>{itemData}</h2>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+              <h2 style={{paddingRight: '10px'}}>{itemData}</h2>
+              <Speech
+                text={itemData}
+                pitch="1"
+                rate="0.9"
+                displayText="Play"
+                textAsButton
+                />
+            </div>
             <h3>Meaning: {values[itemData]?.[0].meaning}</h3>
             <h3>Sentence: {values[itemData]?.[0].sentence}</h3>
           </div>
