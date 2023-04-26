@@ -20,7 +20,32 @@ function App() {
     setSelectedOption(selectedOption)
   }
 
-  const {value: itemData}=selectedOption
+  const previous = () => {
+    const idx = options.indexOf(selectedOption);
+    if(idx > 0) {
+      setSelectedOption(options[options.indexOf(selectedOption) - 1])
+    }
+  }
+
+  const next = () => {
+    const idx = options.indexOf(selectedOption);
+    if (idx < options.length - 1) {
+      setSelectedOption(options[options.indexOf(selectedOption) + 1])
+    }
+  }
+
+  const {value: itemData} = selectedOption
+
+  const btnStyle = {
+    backgroundColor: "#4CAF50",
+    border: 'none',
+    color: "#FFFFF",
+    padding: "5px",
+    textAlign: "center",
+    textDecoration: 'none',
+    display: 'inline-block',
+    fontSize: '16px'
+  }
 
   return (
     <div>
@@ -36,15 +61,21 @@ function App() {
       {
         selectedOption == '' ? <h2>Please select a word</h2> : <div>
           <div style={{textAlign: 'left'}}>
-            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-              <h2 style={{paddingRight: '10px'}}>{itemData}</h2>
-              <Speech
-                text={itemData}
-                pitch="1"
-                rate="0.9"
-                displayText="Play"
-                textAsButton
-                />
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+              <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: "50%"}}>
+                <h2 style={{paddingRight: '10px'}}>{itemData}</h2>
+                <Speech
+                  text={itemData}
+                  pitch="1"
+                  rate="0.9"
+                  displayText="Play"
+                  textAsButton
+                  />
+              </div>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: "10%"}}>
+                <button style={btnStyle} onClick={previous}>Prev</button>
+                <button style={btnStyle} onClick={next}>Next</button>
+              </div>
             </div>
             <h3>Meaning: {values[itemData]?.[0].meaning}</h3>
             <h3>Sentence: {values[itemData]?.[0].sentence}</h3>
