@@ -7,9 +7,8 @@ import Speech from 'react-speech';
 function App() {
   const [selectedOption, setSelectedOption] = useState('');
   const [options, setOptions] = useState();
- 
+
   useEffect(()=>{
-    console.log(Object.keys(data).sort())
     setOptions(Object.keys(data).sort().map(item=>({
       label:item,
       value:item
@@ -32,6 +31,16 @@ function App() {
     if (idx < options.length - 1) {
       setSelectedOption(options[options.indexOf(selectedOption) + 1])
     }
+  }
+
+  const random = () => {
+    var random = randomNumber()
+    setSelectedOption(options[random])
+  }
+
+  function randomNumber() {
+    var min = 0, max = options.length - 1;
+    return Math.floor(Math.random() * (max - min) + min)
   }
 
   const {value: itemData} = selectedOption
@@ -77,6 +86,7 @@ function App() {
           <img src={data[itemData]} alt={itemData} style={{width:'100%'}} />
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10%'}}>
             <button style={btnStyle} onClick={previous}>Prev</button>
+            <button style={btnStyle} onClick={random}>Random</button>
             <button style={btnStyle} onClick={next}>Next</button>
           </div>
         </div>
