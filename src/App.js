@@ -65,6 +65,7 @@ function App() {
           onChange={handleSearchChange}
           options={options}
         />
+        <button style={btnStyle} onClick={random}>Random</button>
       </div>
       <div key={itemData} style={{width:'80%', margin:'auto'}}>
       {
@@ -86,7 +87,6 @@ function App() {
           <img src={data[itemData]} alt={itemData} style={{width:'100%'}} />
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10%'}}>
             <button style={btnStyle} onClick={previous}>Prev</button>
-            <button style={btnStyle} onClick={random}>Random</button>
             <button style={btnStyle} onClick={next}>Next</button>
           </div>
         </div>
