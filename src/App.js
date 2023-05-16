@@ -39,8 +39,7 @@ function App() {
   }
 
   function randomNumber() {
-    var min = 0, max = options.length - 1;
-    return Math.floor(Math.random() * (max - min) + min)
+    return Math.floor(Math.random() * (options.length - 1))
   }
 
   const {value: itemData} = selectedOption
