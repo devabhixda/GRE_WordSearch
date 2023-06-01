@@ -6,7 +6,7 @@ import Speech from 'react-speech';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState('');
-  const [options, setOptions] = useState();
+  var [options, setOptions] = useState();
 
   useEffect(()=>{
     setOptions(Object.keys(data).sort().map(item=>({
@@ -34,12 +34,19 @@ function App() {
   }
 
   const random = () => {
-    var random = randomNumber()
-    setSelectedOption(options[random])
+    document.getElementById("random").disabled = true;
+    options = shuffle(options)
   }
 
-  function randomNumber() {
-    return Math.floor(Math.random() * (options.length - 1))
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+    return array;
   }
 
   const {value: itemData} = selectedOption
@@ -52,7 +59,8 @@ function App() {
     textAlign: "center",
     textDecoration: 'none',
     display: 'inline-block',
-    fontSize: '16px'
+    fontSize: '16px',
+    marginTop: '10px'
   }
 
   return (
@@ -64,7 +72,7 @@ function App() {
           onChange={handleSearchChange}
           options={options}
         />
-        <button style={btnStyle} onClick={random}>Random</button>
+        <button id='random' style={btnStyle} onClick={random}>Random</button>
       </div>
       <div key={itemData} style={{width:'80%', margin:'auto'}}>
       {
